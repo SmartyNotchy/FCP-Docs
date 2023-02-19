@@ -206,6 +206,7 @@ Now, let's make the damage dealt differ based on the hitbar result::
          superEffective()
 
 .. note::
+
    ``notEffective`` and ``superEffective`` are helper functions that print the message "It's not very effective..." in red text and "It's super effective!" in green text, respectively.
    
    For consistency, it is highly recommended to call ``notEffective`` upon a REDZONE hit and ``superEffective`` upon a GREENZONE hit.
@@ -213,4 +214,23 @@ Now, let's make the damage dealt differ based on the hitbar result::
 Scaling with ``damageMultiplier[1]`` and Return Values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Almost done! Now, we need to make the damage dealt scale with ``damageMultiplier[1]`` .
 
+This part's simple: just multiply the arguent in ``target.takeDamage`` by ``damageMultiplier[1]`` !.
+
+This code snippet deals a base of 10 damage, which scales up or down based on damageMultiplier[1]::
+   
+   target.takeDamage(10 * damageMultiplier[1])
+
+TODO: add section on return values
+
+Other Types Of Spells
+---------------------
+
+Attack spells are cool and all, but there are many other types of spells, too!
+
+This section will cover various code snippets that can be used to make your spells do anything your heart desires!!
+
+.. note::
+   
+   For legal reasons, that last sentence was a joke.
