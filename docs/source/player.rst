@@ -132,6 +132,6 @@ Once this reaches zero, ``BattlePlayer.nextDamageReduction`` will be reset back 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 Type: ``list``
 
-A list of ``Effect``s (or subclasses of) that the player currently has.
+A list of ``Effect`` s (or subclasses of) that the player currently has.
 
 Once an effect's duration expires, it will be removed from this list.
