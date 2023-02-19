@@ -274,7 +274,7 @@ The ``castShield`` method takes two arguments:
 
 .. note::
    
-   It is not recommended to scale the shield with ``damageMultiplier[1]``, due to high-percentage shields being OP (imagine a 100% damage reduction shield!)
+   It is not recommended to scale the shield with ``damageMultiplier[1]`` , due to high-percentage shields being OP (imagine a 100% damage reduction shield!)
 
 .. note::
 
@@ -283,6 +283,36 @@ The ``castShield`` method takes two arguments:
    This means that ``castShield`` can also be used to remove shields from the target (Weaken spells)::
      
       target.castShield(1, 0)
+   
+   You can also use ``castShield`` to make the opponent take more damage. This code will make the target take 50% more damage::
+   
+      target.castShield(1.5, 3)
       
 Boost/Weaken Spells
 ~~~~~~~~~~~~~~~~~~~
+
+You can apply a boost for the caster with::
+
+   target.castBoost(1.5, 3)
+
+The ``castBoost`` method takes two arguments:
+
+- ``boost`` is a float ( > 0 ) that represents the damage scaling. At 1.5, the caster's spells will be 50% more effective.
+- ``duration`` is an int that represents the duration of the boost, in terms of spell casts. A duration of 3 means that the caster can cast 3 spells before the boost expires.
+
+``castBoost`` has no return value.
+
+.. note::
+
+   Since spell boosts directly affect ``damageMultiplier[1]`` , do NOT scale the boost with ``damageMultiplier[1]`` , as this would allow for exponential boosts if you kept re-casting the boost spell.
+
+.. note::
+   
+   Similarly to ``castShield`` , ``castBoost`` replaces any boost that the caster is under.
+   
+   So, ``castBoost`` can also be used to remove boosts from the target (i.e. call with arguments 1, 0) or make the opponent's spells weaker (i.e. call with arguments 0.5, 3).
+   
+Effect Spells
+~~~~~~~~~~~~~
+
+TODO! Effect spells require knowledge of the ``Effect`` class and the ``receiveEffect`` method, so skip these for now.
