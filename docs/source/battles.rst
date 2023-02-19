@@ -12,23 +12,12 @@ Battles in the game are started with the ``runBattle`` function, which has the f
 
    def runBattle(player, enemy):
 
-Creating recipes
-----------------
+where
+   - player is a ``BattlePlayer`` object
+   - enemy is a ``BattleEnemy`` object or any subclass of ``BattleEnemy``
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+As such, battles are ONLY influenced by the state of the player & enemy, and nothing else.
 
-.. autofunction:: lumache.get_random_ingredients
-
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
-
-.. autoexception:: lumache.InvalidKindError
-
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
-
+``runBattle`` returns a boolean based on the result of the battle.
+If the player wins, ``runBattle`` returns ``True``. 
+Otherwise, if the enemy wins, ``runBattle`` returns ``False``.
