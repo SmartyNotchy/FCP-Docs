@@ -1,6 +1,21 @@
 Implementing Custom Spells
 ==========================
 
+This is a tutorial and reference document for making your own custom spells.
+
+Prerequisites
+-------------
+
+Understanding basic ``Spell`` attributes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before starting this tutorial, you should know how to implement the basic attributes of ``Spell`` and what they do.
+
+
+
+The .cast method: Basics
+------------------------
+
 Each spell should have a cast method with the following method header:
 
 .. code-block:: py
@@ -16,3 +31,7 @@ Each of the arguments in the cast method has its own purpose:
   - The spell boost (as a float) at index 1
  
 - ``caster`` is either a ``BattlePlayer`` or a ``BattleEnemy`` (or any subclass of ``BattleEnemy``) object and represents the person that cast the spell
+- ``target`` is either a ``BattlePlayer`` or a ``BattleEnemy`` (or any subclass of ``BattleEnemy``) object and represents the person who is being targeted
+
+Starting your first spell
+-------------------------
