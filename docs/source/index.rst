@@ -1,22 +1,19 @@
-Welcome to Lumache's documentation!
-===================================
+Friday CS Project - Battles Documentation
+=========================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
-
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Everything you need to know in order to make your own custom wands & spells
 
 .. note::
 
-   This project is under active development.
+   This project is under active development! Go away Anna! Stop begging to playtest Ryan!
 
 Contents
 --------
 
 .. toctree::
 
-   usage
-   api
+   battles
+   player
+   enemy
+   wands
+   spells
