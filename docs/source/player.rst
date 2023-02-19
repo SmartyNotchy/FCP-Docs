@@ -5,7 +5,7 @@ BattlePlayer
 ------------
 
 The ``BattlePlayer`` class represents the state of the player during a battle.
-It has the following definition:
+It has roughly the following definition:
 
 .. code-block:: py
 
@@ -29,26 +29,18 @@ It has the following definition:
       self.items = [] # all items in inventory
 
     def getName(self):
-      return "|B|{}".format(self.name)
+      # Gets the name of the player, colored
 
     def getNameWithEffects(self):
-      res = "|B|{}".format(self.name)
-      for effect in self.effects:
-        res += "  " + effect.icon
-      return res
+      # Gets the name of the player with status effect icons, colored
 
     def update(self):
       self.health = clamp(self.health, 0, self.maxHealth)
       return self.health != 0
 
     def attack(self, target):
-      choice = dropdownMenu("What will you do?", ["Cast Spell", "Use Item"])
-      if choice == 1:
-        choice = dropdownMenu("Choose a spell to cast:", list(spell.getMenuName() for spell in self.arsenal))
-        self.selectedWand.cast(self.arsenal[choice-1], self, target)
-      for effect in target.effects:
-        effect.effect(target)
-
+      # Opens a dropdown menu asking the player for an action during a battle
+      
     def takeDamage(self, amount):
       newAmount = int(self.nextDamageReduction * amount)
       self.health -= newAmount
@@ -57,3 +49,12 @@ It has the following definition:
         self.nextDamageReductionDuration = 0
         self.nextDamageReduction = 1
       return newAmount
+
+
+Attributes
+----------
+
+``BattlePlayer.name``
+~~~~~~~~~~~~~~~~~~~~~
+
+The name of the player, shown when printing out the battle header
