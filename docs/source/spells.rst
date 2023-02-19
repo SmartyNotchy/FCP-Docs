@@ -258,9 +258,31 @@ You can heal the caster with::
   
 The ``heal`` method will return the amount of health that has been healed, for use in dialog.
 
-Shield Spells
-~~~~~~~~~~~~~
+Defense/Weaken Spells
+~~~~~~~~~~~~~~~~~~~~~
 
 You can cast a shield for the caster with::
 
-   res = caster
+   caster.castShield(0.7, 3)
+
+The ``castShield`` method takes two arguments:
+
+- ``shield`` is a float ( > 0 ) that represents the percentage of damage taken. At 0.7, the caster takes 70% of the damage they would normally take (a 30% shield).
+- ``duration`` is an int that represents the duration of the shield, in terms of hits. A duration of 3 means that the shield will last for 3 hits.
+
+``castShield`` has no return value.
+
+.. note::
+   
+   It is not recommended to scale the shield with ``damageMultiplier[1]``, due to high-percentage shields being OP (imagine a 100% damage reduction shield!)
+
+.. note::
+
+   ``castShield`` replaces any shield that the caster is currently under.
+   
+   This means that ``castShield`` can also be used to remove shields from the target (Weaken spells)::
+     
+      target.castShield(1, 0)
+      
+Boost/Weaken Spells
+~~~~~~~~~~~~~~~~~~~
