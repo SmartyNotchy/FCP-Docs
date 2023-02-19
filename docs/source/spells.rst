@@ -190,3 +190,27 @@ This is a basic attack spell that always deals 10 base damage to the enemy::
    Also note that it is not required to include "{}" in the string in printCastMessage; in other words, you can create cast messages that do not use any names!
    
 .. _here: https://www.learnpython.org/en/String_Formatting
+
+Now, let's make the damage dealt differ based on the hitbar result::
+
+   def cast( ... ):
+      if damageMultiplier[0] == REDZONE:
+         printCastMessage("You mis-cast the spell!", "{} mis-cast the spell!", caster, target)
+         notEffective()
+      elif damageMultiplier[0] == YELLOWZONE:
+         res = target.takeDamage(10)
+         printCastMessage("{} takes %d damage!" % res, "You take %d damage!" % res, caster, target)
+      elif damageMultiplier[0] == GREENZONE:
+         res = target.takeDamage(20)
+         printCastMessage("{} takes %d damage!" % res, "You take %d damage!" % res, caster, target)
+         superEffective()
+
+.. note::
+   ``notEffective`` and ``superEffective`` are helper functions that print the message "It's not very effective..." in red text and "It's super effective!" in green text, respectively.
+   
+   For consistency, it is highly recommended to call ``notEffective`` upon a REDZONE hit and ``superEffective`` upon a GREENZONE hit.
+
+Scaling with ``damageMultiplier[1]`` and Return Values
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
