@@ -106,3 +106,32 @@ Once this reaches zero, ``BattlePlayer.nextHitBoost`` will be reset back to 1.
 
 ``BattlePlayer.nextDamageReduction``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type: ``float``
+
+How much damage the player will absorb on the next hit.
+
+At a value of 1, the player will take normal damage.
+
+At a value of 0.5, the player will take 50% less damage.
+
+At a value of 0.25, the player will take 75% less damage.
+
+At a value of 2, the player will take 100% MORE damage.
+
+and so on.
+
+``BattlePlayer.nextDamageReductionDuration``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type: ``int``
+
+How many hits the player's shield will last.
+
+Once this reaches zero, ``BattlePlayer.nextDamageReduction`` will be reset back to 1.
+
+``BattlePlayer.effects``
+~~~~~~~~~~~~~~~~~~~~~~~~
+Type: ``list``
+
+A list of ``Effect``s (or subclasses of) that the player currently has.
+
+Once an effect's duration expires, it will be removed from this list.
