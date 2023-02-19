@@ -56,9 +56,40 @@ Attributes
 
 ``BattlePlayer.name``
 ~~~~~~~~~~~~~~~~~~~~~
+Type: ``string``
 The name of the player, shown when printing out the battle header
 
 ``BattlePlayer.isPlayer``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+Type: ``boolean``
 Whether the player is in fact a player.
 This boolean will always be ``True`` for the ``BattlePlayer`` and should not be modified.
+
+``BattlePlayer.health``
+~~~~~~~~~~~~~~~~~~~~~~~
+Type: ``int``
+The current health of the player.
+
+``BattlePlayer.maxHealth``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type: ``int``
+The maximum health that the player can have (i.e. when using healing spells)
+
+``BattlePlayer.nextHitBoost``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type: ``float``
+How much the player's next spell cast will be scaled up/down.
+At a value of 1, the player's next spell with have no scaling.
+At a value of 1.5, the player's next spell will be 50% more effective (deal 50% more damage, heal 50% more health, etc.)
+At a value of 2, the player's next spell will be 100% more effective
+At a value of 0.5, the player's next spell will be 50% LESS effective (deal 50% less damage, etc.)
+and so on.
+
+``BattlePlayer.nextHitBoostDuration``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Type: ``int``
+How many turns the player's spell boost will last.
+Once this reaches zero, ``BattlePlayer.nextHitBoost`` will be reset back to 1.
+
+``BattlePlayer.nextDamageReduction``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
