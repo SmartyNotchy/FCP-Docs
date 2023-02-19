@@ -60,10 +60,9 @@ Happy color printing!
 The .cast method: Basics
 ------------------------
 
-Each spell should have a cast method with the following method header:
+Each spell should have a cast method with the following method header::
 
-.. code-block :: py
-  def cast(self, damageMultiplier, caster, target):
+   def cast(self, damageMultiplier, caster, target):
  
 This is the method that is called whenever a spell is cast, and it is what makes spells actually work.
 
@@ -91,9 +90,8 @@ Finally, copy-paste the ``.cast`` method header, and we're ready to get started!
 Printing Messages
 ~~~~~~~~~~~~~~~~~
 
-Let's start by making our spell print a message when cast.
+Let's start by making our spell print a message when cast::
 
-.. code-block :: py
    def cast(self, damageMultiplier, caster, target):
       printC("Hello World!", "B")
       
@@ -104,9 +102,8 @@ Checking the Result of the Hitbar
 
 Our spell shouldn't always do the same thing - the result should change based on the result of the hitbar!
 
-This code will display a different message based on the hitbar location:
+This code will display a different message based on the hitbar location::
 
-.. code-block :: py
    def cast(self, damageMultiplier, caster, target):
       if damageMultiplier[0] == REDZONE:
          printC("You hit in the |R|red|DG|!", "DG")
