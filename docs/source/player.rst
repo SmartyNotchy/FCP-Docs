@@ -22,11 +22,7 @@ It has roughly the following definition:
       self.nextDamageReductionDuration = 0
       self.effects = []
 
-      self.wands = [] # all unlocked wands
-      self.selectedWand = None # currently selected wand (should be singular)
-      self.spells = [] # all unlocked spells
-      self.arsenal = [] # currently selected spells (up to 4)
-      self.items = [] # all items in inventory
+      # Other attributes that should not be worried about
 
     def getName(self):
       # Gets the name of the player, colored
@@ -135,3 +131,12 @@ Type: ``list``
 A list of ``Effect`` s (or subclasses of) that the player currently has.
 
 Once an effect's duration expires, it will be removed from this list.
+
+Methods
+-------
+
+``BattlePlayer.getName()``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Return type: ``string``
+
+Returns the name of the player, colored, to be used in dialog/battle headers.
