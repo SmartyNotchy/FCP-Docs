@@ -146,10 +146,10 @@ There are also some important things to note about this code.
    
    Respect people's pronouns! If it is easier to use pronouns in a message
    
-   (i.e. "You make Pilliam confused, causing him to...")
+   i.e. "You make Pilliam confused, causing him to..."
    
    ALWAYS use they/them pronouns
    
-   (i.e. "You make Pilliam confused, causing them to...").
+   i.e. "You make Pilliam confused, causing them to..."
    
    This avoids having to manually checking each student's gender and changing the string accordingly, and ALSO avoids any potential issues with misgendering people.
