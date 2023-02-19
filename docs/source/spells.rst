@@ -77,8 +77,8 @@ Each of the arguments in the cast method has its own purpose:
 - ``caster`` is either a ``BattlePlayer`` or a ``BattleEnemy`` (or any subclass of ``BattleEnemy``) object and represents the person that cast the spell
 - ``target`` is either a ``BattlePlayer`` or a ``BattleEnemy`` (or any subclass of ``BattleEnemy``) object and represents the person who is being targeted
 
-Starting your first spell
--------------------------
+Coding your first spell
+-----------------------
 
 Let's start making our first spell!
 
@@ -98,4 +98,25 @@ Let's start by making our spell print a message when cast.
       printC("Hello World!", "B")
       
 Now, whenever our spell is cast, it will print out "Hello World!" in blue text.
+
+Checking the Result of the Hitbar
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Our spell shouldn't always do the same thing - the result should change based on the result of the hitbar!
+
+This code will display a different message based on the hitbar location:
+
+.. code-block:: py
+   def cast(self, damageMultiplier, caster, target):
+      if damageMultiplier[0] == REDZONE:
+         printC("You hit in the |R|red|DG|!", "DG")
+      elif damageMultiplier[0] == YELLOWZONE:
+         printC("You hit in the |Y|yellow|DG|!", "DG")
+      elif damageMultiplier[0] == GREENZONE:
+         printC("You hit in the |G|green|DG|! Good job!", "DG")
+
+You should note two important things about this code.
+
+- The result of the hitbar is stored in ``damageMultiplier[0]``
+- The constants ``REDZONE`` , ``YELLOWZONE`` , and ``GREENZONE`` should be used to check the result of the hitbar
 
