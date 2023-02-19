@@ -117,3 +117,14 @@ You should note two important things about this code.
 - The result of the hitbar is stored in ``damageMultiplier[0]``
 - The constants ``REDZONE`` , ``YELLOWZONE`` , and ``GREENZONE`` should be used to check the result of the hitbar
 
+Printing Messages, Part 2
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now, let's start making our spells include the name of the caster & target!
+
+This code builds on the last section's code, but this time it includes dynamic names::
+
+   def cast(self, damageMultiplier, caster, target):
+      if damageMultiplier[0] == REDZONE:
+         printCastMessage("You failed to attack {}!", "{} failed to attack you!", caster, target)
+      
