@@ -56,5 +56,9 @@ Attributes
 
 ``BattlePlayer.name``
 ~~~~~~~~~~~~~~~~~~~~~
-
 The name of the player, shown when printing out the battle header
+
+``BattlePlayer.isPlayer``
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Whether the player is in fact a player.
+This boolean will always be ``True`` for the ``BattlePlayer`` and should not be modified.
