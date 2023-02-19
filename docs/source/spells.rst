@@ -126,5 +126,22 @@ This code builds on the last section's code, but this time it includes dynamic n
 
    def cast(self, damageMultiplier, caster, target):
       if damageMultiplier[0] == REDZONE:
-         printCastMessage("You failed to attack {}!", "{} failed to attack you!", caster, target)
-      
+         printCastMessage("You fail to attack {}!", "{} fails to attack you!", caster, target)
+      elif damageMultiplier[0] == YELLOWZONE:
+         printCastMessage("You attack {}!", "{} attacks you!", caster, target)
+      elif damageMultiplier[0] == GREENZONE:
+         printCastMessage("You land a critical hit on {}!", "{} lands a critical hit on you!", caster, target)
+
+There are also some important things to note about this code.
+
+- ``printCastMessage`` is a helper function that makes writing cast messages a lot easier.
+
+   - The first argument is a string, representing the printed message when the caster is the player. "{}" should be used ONCE in the string to represent the enemy's name. If it is necessary to include the enemy's name multiple times, use "{0}" instead.
+   - The second argument is a string, representing the printed message when the caster is the enemy. "{}" should be used ONCE in the string to represent the enemy's name. If it is necessary to include the enemy's name multiple times, use "{0}" instead.
+   - The third & fourth arguments should be the caster and the target.
+
+- When messages are printed using ``printCastMessage`` , the base color will be dark gray "DG". To change this, write "|W|" or another string key at the beginning of each message.
+
+.. note::
+   
+   Respect people's pronouns! If it is easier to use pronouns in a message (i.e. "You make Pilliam confused, causing him to..."), ALWAYS use they/them pronouns (i.e. "You make Pilliam confused, causing them to..."). This avoids having to manually checking each student's gender and changing the string accordingly, and ALSO avoids any potential issues with misgendering people.
