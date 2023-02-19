@@ -11,6 +11,15 @@ Understanding basic ``Spell`` attributes
 
 Before starting this tutorial, you should know how to implement the basic attributes of ``Spell`` and what they do.
 
+.. note::
+
+   If you don't know how to do this, you're probably not named Pilliam/Akash/Arjun/Omkar, so go away!
+ 
+Color Printing
+~~~~~~~~~~~~~~
+
+All color printing should be done with ``printC`` .
+
 
 
 The .cast method: Basics
