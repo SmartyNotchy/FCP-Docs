@@ -152,4 +152,41 @@ There are also some important things to note about this code.
    
    i.e. "You make Pilliam confused, causing them to..."
    
-   This avoids having to manually checking each student's gender and changing the string accordingly, and ALSO avoids any potential issues with misgendering people.
+   This avoids having to manually check each student's gender and changing the string accordingly, AND avoids any potential issues with misgendering people.
+
+Writing Attack Spells
+~~~~~~~~~~~~~~~~~~~~~
+
+Time to make the spells deal damage!
+
+This code snippet will cause the player to take damage::
+
+   res = target.takeDamage(10)
+
+The ``takeDamage`` method is implemented for ``BattlePlayer`` , ``BattleEnemy`` , and all subclasses of ``BattleEnemy`` .
+
+It takes one argument ``amount`` , which is (shockingly) the amount of damage the target takes.
+
+The method returns the amount of damage that the target ENDS UP taking, which is normally the same but may be lower/higher depending on the target's damage reduction shield.
+
+Whenever you damage a target, you should always capture the return value in a variable for use in dialog.
+
+This is a basic attack spell that always deals 10 base damage to the enemy::
+
+   def cast( ... ):
+      res = target.takeDamage(10)
+      printCastMessage("{} takes %d damage!" % res, "You take %d damage!" % res, caster, target)
+      
+.. note::
+   
+   For brevity, from now on the arguments in the .cast method header will be shortened to "..."
+   
+.. note::
+   
+   Warning! It is highly recommended to use C-style string formatting to avoid conflicts with ``.format()`` in ``printCastMessage`` .
+   
+   You can read about C-style string formatting `here`_.
+   
+   Also note that it is not required to include "{}" in the string in printCastMessage; in other words, you can create cast messages that do not use any names!
+   
+.. _here: https://www.learnpython.org/en/String_Formatting
