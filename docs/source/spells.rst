@@ -15,4 +15,4 @@ Each of the arguments in the cast method has its own purpose:
   - The result of the hitbar (REDZONE/YELLOWZONE/GREENZONE) at index 0
   - The spell boost (as a float) at index 1
  
- - ``caster`` is either a ``BattlePlayer`` or a ``BattleEnemy`` (or any subclass of ``BattleEnemy``) object and represents the person that cast the spell
+- ``caster`` is either a ``BattlePlayer`` or a ``BattleEnemy`` (or any subclass of ``BattleEnemy``) object and represents the person that cast the spell
