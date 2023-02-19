@@ -79,3 +79,23 @@ Each of the arguments in the cast method has its own purpose:
 
 Starting your first spell
 -------------------------
+
+Let's start making our first spell!
+
+Start by making a new ``TestSpell`` class, derived from the ``Spell`` class.
+
+Customize the attributes to make the spell have the desired name, hitbar, etc.
+
+Finally, copy-paste the ``.cast`` method header, and we're ready to get started!
+
+Printing Messages
+~~~~~~~~~~~~~~~~~
+
+Let's start by making our spell print a message when cast.
+
+.. code-block:: py
+   def cast(self, damageMultiplier, caster, target):
+      printC("Hello World!", "B")
+      
+Now, whenever our spell is cast, it will print out "Hello World!" in blue text.
+
