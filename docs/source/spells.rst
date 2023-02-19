@@ -24,7 +24,7 @@ All color printing should be done with ``printC`` .
 
 - ``txt`` : the text to print. Should be a string.
 - ``base_col`` : the starting color of the text. Useful for printing one-line messages with no color changes. Default value of "DG".
-- ``end`` : the ending character of the text. Defaults to "\n".
+- ``end`` : the ending character of the text. Defaults to "\\n".
    
 All colors are represent by a string key that is one or two characters long:
 
