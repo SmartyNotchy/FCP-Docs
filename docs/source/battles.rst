@@ -1,16 +1,16 @@
-Usage
-=====
+How Battles Run
+===============
 
-.. _installation:
+.. _Running Battles:
 
-Installation
+runBattle
 ------------
 
-To use Lumache, first install it using pip:
+Battles in the game are started with the ``runBattle`` function, which has the following method header:
 
-.. code-block:: console
+.. code-block:: py
 
-   (.venv) $ pip install lumache
+   def runBattle(player, enemy):
 
 Creating recipes
 ----------------
