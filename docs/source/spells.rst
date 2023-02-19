@@ -222,7 +222,21 @@ This code snippet deals a base of 10 damage, which scales up or down based on da
    
    target.takeDamage(10 * damageMultiplier[1])
 
-TODO: add section on return values
+With that in mind, this is the final refactored cast method::
+
+   def cast( ... ):
+      if damageMultiplier[0] == REDZONE:
+         printCastMessage("You mis-cast the spell!", "{} mis-cast the spell!", caster, target)
+         notEffective()
+      elif damageMultiplier[0] == YELLOWZONE:
+         res = target.takeDamage(10 * damageMultiplier[1])
+         printCastMessage("{} takes %d damage!" % res, "You take %d damage!" % res, caster, target)
+      elif damageMultiplier[0] == GREENZONE:
+         res = target.takeDamage(20 * damageMultiplier[1])
+         printCastMessage("{} takes %d damage!" % res, "You take %d damage!" % res, caster, target)
+         superEffective()
+
+Congratulations! You have now completed your first attack spell. This should be all you need to start making your very own attack spells!
 
 Other Types Of Spells
 ---------------------
@@ -234,3 +248,19 @@ This section will cover various code snippets that can be used to make your spel
 .. note::
    
    For legal reasons, that last sentence was a joke.
+   
+Healing Spells
+~~~~~~~~~~~~~~
+
+You can heal the caster with::
+
+   res = caster.heal(10 * damageMultiplier[1])
+  
+The ``heal`` method will return the amount of health that has been healed, for use in dialog.
+
+Shield Spells
+~~~~~~~~~~~~~
+
+You can cast a shield for the caster with::
+
+   res = caster
