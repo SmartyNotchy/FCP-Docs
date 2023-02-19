@@ -140,3 +140,37 @@ Methods
 Return type: ``string``
 
 Returns the name of the player, colored, to be used in dialog/battle headers.
+
+``BattlePlayer.getNameWithEffects()``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Return type: ``string``
+
+Returns the name of the player, colored, along with effect icons. To be used in battle headers. Should NOT be used in normal dialog.
+
+``BattlePlayer.update()``
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Return type: ``boolean``
+
+Clamps the player health to be in the range [0, BattlePlayer.maxHealth], inclusive.
+
+Returns ``True`` if the player is alive (health > 0) and ``False`` if the player is dead (health == 0).
+
+``BattlePlayer.attack(target)``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Return type: ``None``
+
+Prints the attack menu to be used against a target enemy.
+
+Used in ``runBattle`` only. Otherwise, should not be called.
+
+``BattlePlayer.takeDamage(amount)``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Return type: ``int``
+
+Makes the player take ``amount`` points of BASE damage.
+
+The actual amount of damage taken will be scaled down (or up) based on ``BattlePlayer.nextDamageReduction`` .
+
+Also decrements ``BattlePlayer.nextDamageReductionDuration`` if necessary.
+
+Returns the actual amount of damage taken as an ``int`` .
