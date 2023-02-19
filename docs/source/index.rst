@@ -13,5 +13,5 @@ Contents
 .. toctree::
    :maxdepth: 2
    
-   battles
-   player
+   wands
+   spells
