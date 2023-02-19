@@ -316,3 +316,13 @@ Effect Spells
 ~~~~~~~~~~~~~
 
 TODO! Effect spells require knowledge of the ``Effect`` class and the ``receiveEffect`` method, so skip these for now.
+
+Combo Spells
+~~~~~~~~~~~~
+
+Don't be limited to one action per spell! Spells can carry out multiple actions at once.
+
+For example, this code snippet attacks the target and heals the user for that amount::
+
+   res = target.takeDamage(12 * damageMultiplier[1])
+   res = caster.heal(res)
