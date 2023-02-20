@@ -41,7 +41,7 @@ All colors are represent by a string key that is one or two characters long:
 - "W":  white
 - "DG": dark gray
 - "BR": brown
-- "--": the base color
+- "----": the base color
 
 In order to change color mid-string, type ``"|string key|"`` in the middle of the ``txt`` string, replacing ``"string key"`` with the string key of the desired character.
 
