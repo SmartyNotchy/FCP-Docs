@@ -211,8 +211,8 @@ Now, let's make the damage dealt differ based on the hitbar result::
    
    For consistency, it is highly recommended to call ``notEffective`` upon a REDZONE hit and ``superEffective`` upon a GREENZONE hit.
 
-Scaling with ``damageMultiplier[1]`` and Return Values
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Scaling with ``damageMultiplier[1]``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Almost done! Now, we need to make the damage dealt scale with ``damageMultiplier[1]`` .
 
