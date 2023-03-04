@@ -264,54 +264,54 @@ Defense/Weaken Spells
 
 You can cast a shield for the caster with::
 
-   caster.castShield(0.7, 3)
+   caster.castShield(0.1, 1.2)
 
 The ``castShield`` method takes two arguments:
 
-- ``shield`` is a float ( > 0 ) that represents the percentage of damage taken. At 0.7, the caster takes 70% of the damage they would normally take (a 30% shield).
-- ``duration`` is an int that represents the duration of the shield, in terms of hits. A duration of 3 means that the shield will last for 3 hits.
+- ``shield`` is a float that represents the shield to add. At 0.1, the caster's shield is boosted by 10%.
+- ``cap`` is a float that represents the maximum shield that can be obtained with this spell. At 1.2, the caster cannot increase their shield past 20% by using this spell.  If the ``cap`` has already been reached, nothing happens (the shield is not reset to the cap.)
 
 ``castShield`` has no return value.
 
 .. note::
    
-   It is not recommended to scale the shield with ``damageMultiplier[1]`` , due to high-percentage shields being OP (imagine a 100% damage reduction shield!)
+   It is not recommended to scale the shield with ``damageMultiplier[1]`` , due to that requiring more advanced calculations and the existence of the shield cap.
 
 .. note::
 
-   ``castShield`` replaces any shield that the caster is currently under.
+   ``castShield`` will always add (or subtract) from the target's current shield.
    
-   This means that ``castShield`` can also be used to remove shields from the target (Weaken spells)::
+   This means that ``castShield`` can also be used to decrease the shield of the target (Weaken spells)::
      
-      target.castShield(1, 0)
+      target.castShield(-0.1, 0.75)
    
-   You can also use ``castShield`` to make the opponent take more damage. This code will make the target take 50% more damage::
+   When ``cap`` is < 1, the shield will not go BELOW that number. ``cap`` should NEVER be negative.
    
-      target.castShield(1.5, 3)
+   Note that negative shields are possible; an opponent with a shield of -10% (internally, 0.9) will take 10% more damage.
       
 Boost/Weaken Spells
 ~~~~~~~~~~~~~~~~~~~
 
 You can apply a boost for the caster with::
 
-   target.castBoost(1.5, 3)
+   target.castBoost(0.5, 2)
 
 The ``castBoost`` method takes two arguments:
 
-- ``boost`` is a float ( > 0 ) that represents the damage scaling. At 1.5, the caster's spells will be 50% more effective.
-- ``duration`` is an int that represents the duration of the boost, in terms of spell casts. A duration of 3 means that the caster can cast 3 spells before the boost expires.
+- ``boost`` is a float that represents the point scaling. At 0.5, the caster's spells are boosted by 50%
+- ``cap`` is a float that represents the maximum boost that can be obtained with this spell. At 2, the caster cannot increase their boost past 100% by using this spell. If the ``cap`` has already been reached, nothing happens (the boost is not reset to the cap.)
 
 ``castBoost`` has no return value.
 
 .. note::
 
-   Since spell boosts directly affect ``damageMultiplier[1]`` , do NOT scale the boost with ``damageMultiplier[1]`` , as this would allow for exponential boosts if you kept re-casting the boost spell.
-
+   Since spell boosts directly affect ``damageMultiplier[1]`` , do NOT scale the boost with ``damageMultiplier[1]`` .
+   
 .. note::
    
-   Similarly to ``castShield`` , ``castBoost`` replaces any boost that the caster is under.
+   Similarly to ``castShield`` , ``castBoost`` adds or subtracts to any boost the target is under.
    
-   So, ``castBoost`` can also be used to remove boosts from the target (i.e. call with arguments 1, 0) or make the opponent's spells weaker (i.e. call with arguments 0.5, 3).
+   So, ``castBoost`` can also be used to weaken a target's spells (i.e. call with arguments -0.1, 0.75). ``castBoost`` behaves similarly to ``castShield`` with negative boost values. Again, ``cap`` shoult NEVER be negative.
    
 Effect Spells
 ~~~~~~~~~~~~~
