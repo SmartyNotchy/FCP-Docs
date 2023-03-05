@@ -324,19 +324,19 @@ For example, this code snippet attacks the target and heals the user for that am
    res = caster.heal(res)
    
 Bonus Spells
-~~~~~~~~~~~~
+------------
 
 Here are some extra code snippets that might come in handy.
 
 "True Damage"
--------------
+~~~~~~~~~~~~~
 
 If you want the target to directly lose health and ingore their shield, manually reduce their health::
 
    target.health -= 10
 
 Percentage Attacks
-------------------
+~~~~~~~~~~~~~~~~~~
 
 You can make a spell deal x% of the target's health. For example::
 
