@@ -285,7 +285,7 @@ The ``castShield`` method takes two arguments:
      
       target.castShield(-0.1, 0.75)
    
-   When ``cap`` is < 1, the shield will not go BELOW that number. ``cap`` should NEVER be negative.
+   When ``cap`` is < 1, the shield will not go BELOW that number. (In the case of shields, ``cap`` can be negative; a ``cap`` of -1 represents a shield of -200%.)
    
    Note that negative shields are possible; an opponent with a shield of -10% (internally, 0.9) will take 10% more damage.
       
@@ -311,12 +311,7 @@ The ``castBoost`` method takes two arguments:
    
    Similarly to ``castShield`` , ``castBoost`` adds or subtracts to any boost the target is under.
    
-   So, ``castBoost`` can also be used to weaken a target's spells (i.e. call with arguments -0.1, 0.75). ``castBoost`` behaves similarly to ``castShield`` with negative boost values. Again, ``cap`` shoult NEVER be negative.
-   
-Effect Spells
-~~~~~~~~~~~~~
-
-TODO! Effect spells require knowledge of the ``Effect`` class and the ``receiveEffect`` method, so skip these for now.
+   So, ``castBoost`` can also be used to weaken a target's spells (i.e. call with arguments -0.1, 0.75). In the case of boosts, ``cap`` shoult NEVER be negative.
 
 Combo Spells
 ~~~~~~~~~~~~
@@ -327,3 +322,24 @@ For example, this code snippet attacks the target and heals the user for that am
 
    res = target.takeDamage(12 * damageMultiplier[1])
    res = caster.heal(res)
+   
+Bonus Spells
+~~~~~~~~~~~~
+
+Here are some extra code snippets that might come in handy.
+
+"True Damage"
+-------------
+
+If you want the target to directly lose health and ingore their shield, manually reduce their health::
+
+   target.health -= 10
+
+Percentage Attacks
+------------------
+
+You can make a spell deal x% of the target's health. For example::
+
+   target.takeDamage(0.05 * target.health) # Affected By Shield
+   target.health -= 0.05 * target.health # "True Damage" Attack
+   
